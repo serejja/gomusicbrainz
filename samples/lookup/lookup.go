@@ -28,7 +28,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/michiwend/gomusicbrainz"
+	"github.com/serejja/gomusicbrainz"
 )
 
 func main() {
@@ -38,7 +38,7 @@ func main() {
 		"https://musicbrainz.org/ws/2",
 		"A GoMusicBrainz example",
 		"0.0.1-beta",
-		"http://github.com/michiwend/gomusicbrainz")
+		"http://github.com/serejja/gomusicbrainz")
 
 	// Lookup artist by id.
 	artist, err := client.LookupArtist("10adbe5e-a2c0-4bf3-8249-2b4cbf6e6ca8")
