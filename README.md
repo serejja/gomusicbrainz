@@ -1,15 +1,16 @@
-# gomusicbrainz [![License MIT](http://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)](http://opensource.org/licenses/MIT) [![GoDoc](http://img.shields.io/badge/api-Godoc-blue.svg?style=flat-square)](https://godoc.org/github.com/michiwend/gomusicbrainz) [![GoWalker](http://img.shields.io/badge/api-GoWalker-green.svg?style=flat-square)](https://gowalker.org/github.com/michiwend/gomusicbrainz) [![Build Status](http://img.shields.io/travis/michiwend/gomusicbrainz.svg?style=flat-square)](https://travis-ci.org/michiwend/gomusicbrainz) 
+# gomusicbrainz [![License MIT](http://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)](http://opensource.org/licenses/MIT) [![GoDoc](http://img.shields.io/badge/api-Godoc-blue.svg?style=flat-square)](https://godoc.org/github.com/serejja/gomusicbrainz) [![GoWalker](http://img.shields.io/badge/api-GoWalker-green.svg?style=flat-square)](https://gowalker.org/github.com/serejja/gomusicbrainz) [![Build Status](http://img.shields.io/travis/serejja/gomusicbrainz.svg?style=flat-square)](https://travis-ci.org/serejja/gomusicbrainz)
 
 a Go (Golang) MusicBrainz WS2 client library - a work in progress.
+Forked from https://github.com/michiwend/gomusicbrainz
 
-![gopherbrainz Oo](https://raw.githubusercontent.com/michiwend/gomusicbrainz/master/misc/gopherbrainz.png)
+![gopherbrainz Oo](https://raw.githubusercontent.com/serejja/gomusicbrainz/master/misc/gopherbrainz.png)
 
 ## Current state
 Currently GoMusicBrainz provides methods to perform search and lookup requests. Browse requests are not supported yet.
 
 ## Installation
 ```bash
-$ go get github.com/michiwend/gomusicbrainz
+$ go get github.com/serejja/gomusicbrainz
 ```
 
 ## Search Requests
@@ -33,7 +34,7 @@ client := gomusicbrainz.NewWS2Client(
     "https://musicbrainz.org/ws/2",
     "A GoMusicBrainz example",
     "0.0.1-beta",
-    "http://github.com/michiwend/gomusicbrainz")
+    "http://github.com/serejja/gomusicbrainz")
 
 // Search for some artist(s)
 resp, _ := client.SearchArtist(`artist:"Parov Stelar"`, -1, -1)
@@ -73,7 +74,7 @@ client, _ := gomusicbrainz.NewWS2Client(
     "https://musicbrainz.org/ws/2",
     "A GoMusicBrainz example",
     "0.0.1-beta",
-    "http://github.com/michiwend/gomusicbrainz")
+    "http://github.com/serejja/gomusicbrainz")
 
 // Lookup artist by id.
 artist, err := client.LookupArtist("9a709693-b4f8-4da9-8cc1-038c911a61be")
@@ -88,5 +89,5 @@ fmt.Printf("%+v", artist)
 
 ## Package Documentation
 Full documentation for this package can be found at
-[GoDoc](https://godoc.org/github.com/michiwend/gomusicbrainz)
-and  [GoWalker](https://gowalker.org/github.com/michiwend/gomusicbrainz)
+[GoDoc](https://godoc.org/github.com/serejja/gomusicbrainz)
+and  [GoWalker](https://gowalker.org/github.com/serejja/gomusicbrainz)

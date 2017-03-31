@@ -179,6 +179,20 @@ func (c *WS2Client) searchRequest(endpoint string, result interface{}, searchTer
 	return nil
 }
 
+func (c *WS2Client) browseRequest(endpoint string, result interface{}, forEntity, entityMBID string, limit, offset int) error {
+	params := url.Values{
+		forEntity: {entityMBID},
+		"limit":   {intParamToString(limit)},
+		"offset":  {intParamToString(offset)},
+	}
+
+	if err := c.getRequest(result, params, endpoint); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func encodeInc(inc []string) url.Values {
 	if inc != nil {
 		return url.Values{

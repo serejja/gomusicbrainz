@@ -28,7 +28,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/michiwend/gomusicbrainz"
+	"github.com/serejja/gomusicbrainz"
 )
 
 func main() {
@@ -38,7 +38,7 @@ func main() {
 		"https://musicbrainz.org/ws/2",
 		"A GoMusicBrainz example",
 		"0.0.1-beta",
-		"http://github.com/michiwend/gomusicbrainz")
+		"http://github.com/serejja/gomusicbrainz")
 
 	// Search for some artist(s)
 	resp, _ := client.SearchArtist(`artist:"Parov Stelar"`, -1, -1)

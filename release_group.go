@@ -106,6 +106,22 @@ func (c *WS2Client) SearchReleaseGroup(searchTerm string, limit, offset int) (*R
 	return &rsp, err
 }
 
+func (c *WS2Client) BrowseReleaseGroups(forEntity, entityMBID string, limit, offset int) (*ReleaseGroupSearchResponse, error) {
+	result := releaseGroupListResult{}
+	err := c.browseRequest("/release-group", &result, forEntity, entityMBID, limit, offset)
+
+	rsp := ReleaseGroupSearchResponse{}
+	rsp.WS2ListResponse = result.ReleaseGroupList.WS2ListResponse
+	rsp.Scores = make(ScoreMap)
+
+	for i, v := range result.ReleaseGroupList.ReleaseGroups {
+		rsp.ReleaseGroups = append(rsp.ReleaseGroups, v.ReleaseGroup)
+		rsp.Scores[rsp.ReleaseGroups[i]] = v.Score
+	}
+
+	return &rsp, err
+}
+
 // ReleaseGroupSearchResponse is the response type returned by release group request
 // methods.
 type ReleaseGroupSearchResponse struct {

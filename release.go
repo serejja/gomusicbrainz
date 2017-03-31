@@ -129,6 +129,22 @@ func (c *WS2Client) SearchRelease(searchTerm string, limit, offset int) (*Releas
 	return &rsp, err
 }
 
+func (c *WS2Client) BrowseReleases(forEntity, entityMBID string, limit, offset int) (*ReleaseSearchResponse, error) {
+	result := releaseListResult{}
+	err := c.browseRequest("/release", &result, forEntity, entityMBID, limit, offset)
+
+	rsp := ReleaseSearchResponse{}
+	rsp.WS2ListResponse = result.ReleaseList.WS2ListResponse
+	rsp.Scores = make(ScoreMap)
+
+	for i, v := range result.ReleaseList.Releases {
+		rsp.Releases = append(rsp.Releases, v.Release)
+		rsp.Scores[rsp.Releases[i]] = v.Score
+	}
+
+	return &rsp, err
+}
+
 // ReleaseSearchResponse is the response type returned by the SearchRelease method.
 type ReleaseSearchResponse struct {
 	WS2ListResponse
