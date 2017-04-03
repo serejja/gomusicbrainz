@@ -75,6 +75,7 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 	"path"
@@ -146,6 +147,14 @@ func (c *WS2Client) getRequest(data interface{}, params url.Values, endpoint str
 		return err
 	}
 	defer resp.Body.Close()
+
+	if resp.StatusCode < 200 || resp.StatusCode > 299 {
+		errorResponseBody, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			return err
+		}
+		return fmt.Errorf("Received error response with code %d: %s", resp.StatusCode, string(errorResponseBody))
+	}
 
 	decoder := xml.NewDecoder(resp.Body)
 
