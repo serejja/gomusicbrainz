@@ -27,6 +27,23 @@ package gomusicbrainz
 
 import "encoding/xml"
 
+const (
+	ReleaseGroupTypeAlbum       = "Album"
+	ReleaseGroupTypeSingle      = "Single"
+	ReleaseGroupTypeEP          = "EP"
+	ReleaseGroupTypeBroadcast   = "Broadcast"
+	ReleaseGroupTypeOther       = "Other"
+	ReleaseGroupTypeCompilation = "Compilation"
+	ReleaseGroupTypeSoundtrack  = "Soundtrack"
+	ReleaseGroupTypeSpokenword  = "Spokenword"
+	ReleaseGroupTypeInterview   = "Interview"
+	ReleaseGroupTypeAudiobook   = "Audiobook"
+	ReleaseGroupTypeLive        = "Live"
+	ReleaseGroupTypeRemix       = "Remix"
+	ReleaseGroupTypeDJMix       = "DJ-mix"
+	ReleaseGroupTypeMixtape     = "Mixtape/Street"
+)
+
 // ReleaseGroup groups several different releases into a single logical entity.
 // Every release belongs to one, and only one release group. More informations
 // at https://musicbrainz.org/doc/Release_Group
